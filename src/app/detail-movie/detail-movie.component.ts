@@ -28,6 +28,7 @@ export class DetailMovieComponent implements OnInit {
       });
 
   }
+  //film detaylarını getiren method
   getDetails(id: number) {
     this.moviesService.getDetails(id)
       .subscribe(
@@ -35,7 +36,7 @@ export class DetailMovieComponent implements OnInit {
         error => this.errorMessage = <any>error);
 
   }
-
+//listeleme ekranına geri dönmek için yazılmış method
   back() {
     this.location.back();
 

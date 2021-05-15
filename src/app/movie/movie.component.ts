@@ -18,7 +18,7 @@ export class MovieComponent implements OnInit {
   ngOnInit() {
     this.getMovies();
   }
-
+//popüler filmleri çekmek için kullanılan method
   getMovies() {
     this.movies = this.moviesService.getMovies();
   }
