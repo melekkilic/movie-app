@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="card text-white bg-primary" style="margin-left: 100px">
+    <div class="card-body">
+      <h4 class="card-title" style="font-size:x-large"></h4>
+      <p class="card-text" style="font-size: x-large;padding: inherit">Spend more time watching than actually searching !</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <h2 style="margin-top:50px;margin-left:80px" ><b>Popular Movies</b></h2>
+    <div class="col-md-3" style="margin-top:30px" *ngFor="let movie of movies | async">
+      <div class="card shadow-sm"  style="margin-left:80px;">
+        <div class="image">
+          <img *ngIf="movie.poster_path" class="ui middle aligned tiny image" style="max-width: 250px;" src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}">
+          <img *ngIf="!movie.poster_path" class="ui middle aligned tiny image"  style="max-width: 250px;" src="https://placehold.it/500x740">
+        </div>
+
+        <div class="card-body">
+          <p class="card-text"> <b>{{ movie.title }}</b></p>
+          <span class="right floated">
+          <h3>
+            <i class="fa fa-star"></i>
+            {{ movie.vote_average }}
+          </h3>
+        </span>
+          <p class="card-text" style="color:grey">{{ movie.release_date }}</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+              <button type="button" routerLink="/detail/{{movie.id}}" class="btn btn-sm btn-outline-secondary">Detail</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,99 @@
+<!--<main role="main" class="container">-->
+<!--  <div class="row">-->
+<!--    <div class="col-md-6">-->
+<!--      <h2 class="mt-3 pt-3"></h2>-->
+
+<!--    </div>-->
+<!--    <div class="col-md-6">-->
+<!--      <h2 class="mt-3 pt-3">Notlar</h2>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</main>-->
+<div class="ui container" >
+
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="mt-3 pt-3"></h2>
+      <div class="middle aligned sixteen wide mobile eight wide tablet four wide computer column">
+        <img *ngIf="selectedMovie.poster_path" class="ui middle aligned tiny image"  src="https://image.tmdb.org/t/p/w500{{selectedMovie.poster_path}}">
+      </div>
+    </div>
+    <div class="col-md-6">
+      <h2 class="mt-3 pt-3"></h2>
+      <h2 class="ui orange header">
+        <b> {{ selectedMovie?.title }}</b>
+      </h2>
+        <div class="ui padded grid" id="content">
+            <div class="ui centered grid">
+
+              <div  class="sixteen wide mobile sixteen wide tablet sixteen wide computer column">
+                <i *ngFor="let genre of selectedMovie?.genres" style="color:grey" class="ui orange label">{{ genre.name }}</i>
+              </div>
+
+
+              <div  class="mt-3 pt-3">
+                <div class="ui sub header">
+                  <span ><b>Additional information</b></span>
+                </div>
+
+                <a *ngIf="selectedMovie?.imdb_id" href="http://www.imdb.com/title/{{ selectedMovie?.imdb_id }}/">
+                  <i class="ui yellow label">IMDb</i>
+                </a>
+
+                <a *ngIf="selectedMovie?.homepage" href="{{ selectedMovie?.homepage }}/">
+                  <i class="ui label">WWW</i>
+                </a>
+              </div>
+
+              <div class="mt-2 pt-2">
+                <div class="ui green statistic">
+                  <div class="label">
+                    <span><b>Vote Average</b></span>
+                  </div>
+                  <div class="text value">  <i class="fa fa-star"></i> {{ selectedMovie?.vote_average }}</div>
+                </div>
+              </div>
+
+              <div class="mt-2 pt-2">
+                <div class="ui green statistic">
+                  <div class="label">
+                    <span><b>Vote Count</b></span>
+                  </div>
+                  <div class="text value"><i class="fa fa-users"></i> {{ selectedMovie?.vote_count }}</div>
+                </div>
+              </div>
+
+              <div class="mt-2 pt-2">
+                <div class="ui teal statistic">
+                  <div class="label">
+                    <span><b>Popularity</b></span></div>
+                  <div class="text value"><i class="fa fa-angle-double-up"></i> {{ selectedMovie?.popularity | number: '1.0-2' }}</div>
+                </div>
+              </div>
+
+              <div class="mt-2 pt-2">
+                <div class="ui blue statistic">
+                  <div class="label">
+                    <span><b>Release date</b></span></div>
+                  <div class="text value"><i class="fa fa-calendar"></i> {{ selectedMovie?.release_date }}</div>
+                </div>
+              </div>
+
+              <div class="mt-3 pt-3">
+                <div class="ui sub header">
+                  <span><b>Overview</b></span>
+                </div>
+                {{ selectedMovie?.overview }}
+              </div>
+
+            </div>
+
+        </div>
+        <div class="mt-3 pt-3">
+          <button type="button" style="float:right"  (click)="back()" class="btn btn-dark">Back</button>
+        </div>
+    </div>
+  </div>
+
+
+</div>
